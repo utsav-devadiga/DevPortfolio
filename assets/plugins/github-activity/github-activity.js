@@ -56,8 +56,7 @@ var GitHubActivity = (function() {
           }
           if (i < 2) {
             d.shaLink = methods.renderGitHubLink(data.repo.name + '/commit/' + d.sha, d.sha.substring(0, 6), 'gha-sha');
-            d.committerGravatar = Mustache.render('<img class="gha-gravatar-commit" src="https://gravatar.com/avatar/{{hash}}?s=30&d=https://a248.e.akamai.net/assets.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png" width="16" />', { hash: md5(d.author.email) });
-          } else {
+            d.committerGravatar = Mustache.render('<img class="gha-gravatar-commit" src="https://gravatar.com/avatar/{{hash}}" width="16" />', { hash: md5(d.author.email.trim().toLowerCase()) }); } else {
             // Delete the rest of the commits after the first 2, and then break out of the each loop.
             p.commits.splice(2, p.size);
             return false;
@@ -153,7 +152,7 @@ var GitHubActivity = (function() {
         data.withoutName = ' without-name';
       }
       data.userLink = methods.renderLink(data.html_url, data.login);
-      data.gravatarLink = methods.renderLink(data.html_url, '<img src="' + data.avatar_url + '">');
+      data.gravatarLink = methods.renderLink(data.html_url, '<img src="' + data.avatar_url + '" style={{height:0px}} >');
 
       return Mustache.render(templates.UserHeader, data);
     },
