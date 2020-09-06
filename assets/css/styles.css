@@ -701,13 +701,13 @@ a.dotted-link:hover {
   transition: all 0.3s ease-out;
 }
 .wrapper .button:nth-child(1):hover .icon{
-  background: #3AAA64;
+  background: #fff;
 }
 .wrapper .button:nth-child(2):hover .icon{
-  background: #3AAA64;
+  background: #fff;
 }
 .wrapper .button:nth-child(3):hover .icon{
-  background: #3AAA64;
+  background: #fff;
 }
 .wrapper .button .icon i{
   font-size: 25px;
